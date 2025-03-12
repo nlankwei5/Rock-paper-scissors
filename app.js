@@ -3,8 +3,7 @@ let computerScore = 0;
 
 
 
-const computerSelection = getComputerChoice()
-const humanSelection = getHumanChoice()
+
 
 
 
@@ -13,10 +12,10 @@ function playGame(){
    
     let counter = 0;
     while (counter < 5){
-        getHumanChoice()
-        playRound(computerSelection,humanSelection)
+        const computerSelection = getComputerChoice()
+        const humanSelection = getHumanChoice()
+        playRound(computerSelection, humanSelection)
         counter ++ ;
-        console.log(counter)
     }
     if (computerScore > humanScore){
         console.log("You lose!")
