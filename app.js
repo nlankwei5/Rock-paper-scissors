@@ -1,30 +1,68 @@
+let humanScore = 0;
+let computerScore = 0;
+
+
+
+const computerSelection = getComputerChoice()
+const humanSelection = getHumanChoice()
+
+
+
+function playGame(){
+    //console.log("------------- Welcome! Play Rock, Paper, Scissors! --------------")
+   
+    let counter = 0;
+    while (counter < 5){
+        getHumanChoice()
+        playRound(computerSelection,humanSelection)
+        counter ++ ;
+        console.log(counter)
+    }
+    if (computerScore > humanScore){
+        console.log("You lose!")
+    }else if (computerScore < humanScore){
+        console.log("You win!")
+    }else {
+        console.log("Draw")
+    } 
+    
+}
+
+
+
 function playRound(computerChoice, humanChoice){
     if (computerChoice.toLowerCase() === "rock" && humanChoice.toLowerCase() === "paper"){
-        console.log("You win! Paper beats Rock")
+        console.log("Computer chooses: ", computerChoice)
+        console.log("Paper beats Rock")
         humanScore += 1;
         return
     }else if (computerChoice.toLowerCase() === "scissors" && humanChoice.toLowerCase() === "paper"){
-        console.log("You lose! Scissors beats Paper")
+        console.log("Computer chooses: ", computerChoice)
+        console.log("Scissors beats Paper")
         computerScore += 1;
         return
    }else if (computerChoice.toLowerCase() === "paper" && humanChoice.toLowerCase() === "scissors"){
-        console.log("You win! Scissors beats Paper")
+        console.log("Computer chooses: ", computerChoice)
+        console.log("Scissors beats Paper")
         humanScore += 1;
         return
    }else if (computerChoice.toLowerCase() === "paper" && humanChoice.toLowerCase() === "rock"){
-        console.log("You lose! Paper beats Rock")
+        console.log("Computer chooses: ", computerChoice)
+        console.log("Paper beats Rock")
         computerScore += 1;
         return
-    }else {
+    }else if (computerChoice.toLowerCase() === "scissors" && humanChoice.toLowerCase() === "rock"){
+        console.log("Computer chooses: ", computerChoice)
+        console.log(" Rock beats scissors")
+        humanScore += 1;
+        return
+    }
+    else {
+        console.log("Computer chooses: ", computerChoice)
         console.log("Draw! Replay")
     }
 }
 
-
-//playRound(computerSelection,humanSelection)
-
-let humanScore = 0;
-let computerScore = 0;
 
 function getComputerChoice(){
     random = Math.floor(Math.random()*3)
@@ -37,13 +75,11 @@ function getComputerChoice(){
     }
 }
 
-let getHumanChoice = (choice) => {return prompt("Rock, Paper, Scissors: ") }
+function getHumanChoice(choice){
+    return prompt("Rock, Paper, Scissors: ")
+}
 
-const computerSelection = getComputerChoice()
-const humanSelection = getHumanChoice()
 
-console.log(playRound(computerSelection,humanSelection))
-console.log("Your Score is:", humanScore)
-console.log("Computer Score is:", computerScore)
+playGame()
 
 
